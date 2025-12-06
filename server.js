@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
  * CWA 氣象資料開放平臺 API
  * 使用「一般天氣預報-今明 36 小時天氣預報」資料集
  */
-const getKaohsiungWeather = async (req, res) => {
+const getTainanWeather = async (req, res) => {
   try {
     // 檢查是否有設定 API Key
     if (!CWA_API_KEY) {
@@ -141,8 +141,8 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
-// 取得高雄天氣預報
-app.get("/api/weather/kaohsiung", getKaohsiungWeather);
+// 取得臺南天氣預報
+app.get("/api/weather/Tainan", getTainanWeather);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
